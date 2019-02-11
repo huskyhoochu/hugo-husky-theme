@@ -13,7 +13,7 @@ module.exports = {
     }),
     require('tailwindcss')(themeDir + './assets/js/tailwind.js'),
     require('@fullhuman/postcss-purgecss')({
-      content: [`${themeDir}layouts/**/*.html`],
+      content: ['layouts/**/*.html'],
       extractors: [
         {
           extractor: TailwindExtractor,
