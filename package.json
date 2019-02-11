@@ -4,5 +4,13 @@
   "main": "index.js",
   "repository": "git@github.com:huskyhoochu/hugo-husky-theme.git",
   "author": "huskyhoochu <dfg1499@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.1.0",
+    "autoprefixer": "^9.4.7",
+    "postcss": "^7.0.14",
+    "postcss-cli": "^6.1.1",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^0.7.4"
+  }
 }
