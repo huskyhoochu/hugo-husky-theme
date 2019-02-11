@@ -1,0 +1,8 @@
+{
+  "name": "husky_theme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:huskyhoochu/hugo-husky-theme.git",
+  "author": "huskyhoochu <dfg1499@gmail.com>",
+  "license": "MIT"
+}
