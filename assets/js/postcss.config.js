@@ -7,9 +7,9 @@ class TailwindExtractor {
 module.exports = {
   plugins: [
     require('postcss-import')({
-      path: ['static/css'],
+      path: ['./css'],
     }),
-    require('tailwindcss')('static/js/tailwind.js'),
+    require('tailwindcss')('./js/tailwind.js'),
     require('autoprefixer')({
       browsers: ['>1%']
     }),
