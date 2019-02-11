@@ -1,8 +1,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-{{ $normalize := resources.Get "./css/normalize.css" | postCSS (dict "config" "./assets/js/postcss.config.js") | fingerprint }}
-<link rel="stylesheet" href="{{ $normalize.Permalink }}">
-{{ $style := resources.Get "./css/styles.css" | postCSS (dict "config" "./assets/js/postcss.config.js") | fingerprint }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ $normalize := resources.Get "./css/normalize.css" | postCSS (dict "config" "./assets/js/postcss.config.js") | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $normalize.Permalink }}" integrity="{{ $normalize.Data.Integrity }}">
+{{ if .Site.IsServer }}
+  {{ $style := resources.Get "./css/styles.css" | postCSS (dict "config" "./assets/js/postcss.config.js") }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ else }}
+  {{ $style := resources.Get "./css/styles.css" | postCSS (dict "config" "./assets/js/postcss.config.purge.js") | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ end }}
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
