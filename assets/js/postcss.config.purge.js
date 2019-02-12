@@ -20,8 +20,8 @@ module.exports = {
           extensions: ['html'],
         }
       ],
-      fontface: true
-    })
+      fontFace: true
+    }),
     require('autoprefixer')({
       browsers: ['>1%']
     }),
